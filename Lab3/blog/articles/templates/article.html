@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <div>
+        Автор: {{ post.author.username }}<br>
+        Дата: {{ post.created_date }}
+    </div>
+    <div>
+        {{ post.text }}
+    </div>
+    <a href="{% url 'archive' %}">Назад к архиву</a>
+</body>
+</html>

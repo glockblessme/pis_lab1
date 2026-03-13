@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Создать статью</title>
+</head>
+<body>
+    <h1>Создать новую статью</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <input type="text" name="title" placeholder="Название" value="{{ form.title|default:'' }}">
+        </p>
+        <p>
+            <textarea name="text" placeholder="Текст">{{ form.text|default:'' }}</textarea>
+        </p>
+        <p>
+            <input type="submit" value="Сохранить">
+        </p>
+        {% if form.errors %}
+        <p style="color:red;">{{ form.errors }}</p>
+        {% endif %}
+    </form>
+    <a href="{% url 'archive' %}">Назад к архиву</a>
+</body>
+</html>
